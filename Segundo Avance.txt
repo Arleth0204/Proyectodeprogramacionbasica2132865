@@ -1,0 +1,105 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+#include <iostream>
+#include <stdio.h>
+#include <string.h>
+#include <wchar.h>
+#include <string>
+#include <math.h> //calculos mate
+#include <conio.h>
+ 
+using namespace std;
+
+ 
+    //Estructura de datos
+struct datos
+{
+	//declaracion de variables
+
+	char nombre[20];
+	char genero[20];
+
+string descripcion;
+	float precio;
+	int codigo;
+};
+
+int main()
+{
+	datos articulo[3];
+	int  opcion, desicion;
+	
+	do
+	{
+	printf( "\t\t\t******MENU DE OPCIONES******\n");
+	printf( "1.Alta.\n");
+	printf( "2.Modificacion\n");
+	printf( "3.Baja\n");
+	printf( "4.Lista\n");
+	printf( "5.Limpiar la pantalla\n");
+	printf( "6.Salir-Next\n");
+	scanf_s("%d", &opcion);
+
+	switch (opcion)
+	{
+	case 1:
+		for(int i=0; i<3;i++)
+		{
+			printf("Hola,buen dia\n");
+			cin.ignore();
+			printf("\n---------------------------\n");
+
+			printf("Teclea el nombre del articulo que deseas dar de alta\n");
+			cin.ignore();
+			gets_s(articulo[i].nombre);
+
+			printf("Teclea una breve descripcion del articulo\n");
+			getline(cin, articulo[i].descripcion);
+
+			printf("Teclea el genero:\n");
+			gets_s(articulo[i].genero);
+
+			printf("Teclea codigo del articulo\n");
+			scanf_s("%d", &articulo[i].codigo);
+
+			printf("Teclea el precio del articulo\n");
+			scanf_s("%f", &articulo[i].precio);
+		}
+		break;
+	case 2:
+		break;
+
+	case 3:
+		break;
+
+	case 4:
+		printf("\t\t\t\t*****LISTA*****\n");
+		printf("\n---------------------------\n");
+		for (int i = 0; i < 3; i++)
+		{
+			printf("NOMBRE: %s\n", articulo[i].nombre);
+			printf("CODIGO: %d\n", articulo[i].codigo);
+			printf("DESCRIPCION: %s\n",articulo[i].descripcion.c_str());
+			printf("GENERO: %s\n", articulo[i].genero);
+			printf("PRECIO: %f\n", articulo[i].precio + articulo[i].precio * 0.16);
+		}
+		break;
+		//limpiar pantalla
+	case 5:
+		system("cls");
+		break;
+        //Salida
+	case 6:
+		exit(1);
+
+	default:
+		return main();
+		break;
+	}
+	} while (opcion != 6);
+}
